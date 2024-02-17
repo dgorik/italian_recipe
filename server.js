@@ -75,23 +75,15 @@ const flowers = {
 
 
 
-app.get('/api/:name', async (request, response) => {
-    const userInput = request.params.name.toLowerCase();
+app.get('/api/:name', (request, response) => {
+    const userInput = request.params.name.toLowerCase()
     if (flowers.hasOwnProperty(userInput)) {
-        const pictureURL = flowers[userInput]['picture'];
-        if (pictureURL) {
-            try {
-                const pictureResponse = await axios.get(pictureURL);
-                response.send(pictureResponse.data);
-            } catch (error) {
-                response.status(500).json({ error: "Failed to fetch picture." });
-            }
-        } else {
-            response.status(404).json({ error: "Picture not found for the flower." });
-        }
-    } else {
+        response.json(flowers[userInput]["description"])
+    }
+    else {
         response.status(404).json({ error: "Please enter a valid flower." });
     }
+
 });
 
 app.listen(process.env.PORT || PORT, () => {
