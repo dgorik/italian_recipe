@@ -9,75 +9,75 @@ app.get('/', (request, response) => {
 })
 
 const flowers = {
-    "roses": {
+    "rose": {
         "description": "Roses typically grow in gardens and should be watered every 2-3 days.",
         "location": "Gardens",
         "care": "Regular pruning, fertilizing, and pest control",
-        "picture": "https://www.pexels.com/search/roses/"
+        "picture": "https://images.pexels.com/photos/53141/rose-red-blossom-bloom-53141.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "sunflowers": {
+    "sunflower": {
         "description": "Sunflowers thrive in open fields and require watering every day.",
         "location": "Open fields",
         "care": "Full sun and well-drained soil",
-        "picture": "https://www.pexels.com/search/sunflower/"
+        "picture": "https://images.pexels.com/photos/1366630/pexels-photo-1366630.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "orchids": {
+    "orchid": {
         "description": "Orchids are often found in greenhouses and need watering every 5-7 days.",
         "location": "Greenhouses",
         "care": "High humidity and indirect light",
-        "picture": "https://www.pexels.com/search/orchid/"
+        "picture": "https://images.pexels.com/photos/87016/orchid-flower-blossom-bloom-87016.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "lilys": {
+    "lily": {
         "description": "Lilies grow near pond edges and should be watered twice a week.",
         "location": "Pond edges",
         "care": "Moderate sunlight and moist soil",
-        "picture": "https://www.pexels.com/search/lily/"
+        "picture": "https://images.pexels.com/photos/424134/pexels-photo-424134.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "tulips": {
+    "tulip": {
         "description": "Tulips are commonly found in flower beds and require watering every 3-4 days.",
         "location": "Flower beds",
         "care": "Well-drained soil and full sun to partial shade",
-        "picture": "https://www.pexels.com/search/tulip/"
+        "picture": "https://images.pexels.com/photos/53978/tulipa-tulip-flowers-spring-53978.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "daisys": {
+    "daisy": {
         "description": "Daisies are hardy and grow in a variety of environments, from fields to gardens.",
         "location": "Fields or gardens",
         "care": "Regular deadheading to promote blooming",
-        "picture": "https://www.pexels.com/search/daisy/"
+        "picture": "https://images.pexels.com/photos/67857/daisy-flower-spring-marguerite-67857.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "carnations": {
+    "carnation": {
         "description": "Carnations are popular in bouquets and thrive in well-drained soil.",
         "location": "Gardens or pots",
         "care": "Regular pruning and deadheading",
-        "picture": "https://www.pexels.com/search/carnation/"
+        "picture": "https://images.pexels.com/photos/2379271/pexels-photo-2379271.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "daffodils": {
+    "daffodil": {
         "description": "Daffodils are early spring bloomers and require well-drained soil and partial shade.",
         "location": "Gardens or flower beds",
         "care": "Plant bulbs in the fall for spring blooms",
-        "picture": "https://www.pexels.com/search/daffodil/"
+        "picture": "https://images.pexels.com/photos/3834461/pexels-photo-3834461.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "hyacinths": {
+    "hyacinth": {
         "description": "Hyacinths are known for their fragrant blooms and prefer full sun to partial shade.",
         "location": "Gardens or pots",
         "care": "Plant bulbs in the fall and provide adequate moisture",
-        "picture": "https://www.pexels.com/search/hyacinth/"
+        "picture": "https://images.pexels.com/photos/1018142/pexels-photo-1018142.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "peonys": {
+    "peony": {
         "description": "Peonies are perennial favorites with large, showy blooms and thrive in full sun.",
         "location": "Gardens",
         "care": "Provide support for tall varieties and deadhead spent blooms",
-        "picture": "https://www.pexels.com/search/peony/"
+        "picture": "https://images.pexels.com/photos/617967/pexels-photo-617967.jpeg?auto=compress&cs=tinysrgb&w=600"
     }
 }
 
 
 
 
-app.get('/api/:name', (request, response) => {
-    const userInput = request.params.name.toLowerCase()
+app.get('/api/:flowerName', (request, response) => {
+    const userInput = request.params.flowerName.toLowerCase()
     if (flowers.hasOwnProperty(userInput)) {
-        response.json(flowers[userInput]["description"])
+        response.json(flowers[userInput])
     }
     else {
         response.status(404).json({ error: "Please enter a valid flower." });
