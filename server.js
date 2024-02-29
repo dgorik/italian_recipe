@@ -10,8 +10,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 app.get('/', (request, response) => {
-    const currentPath = request.path;
-    response.render('index.ejs', { currentPath: currentPath });
+    response.render('index.ejs');
 })
 
 const flowers = {

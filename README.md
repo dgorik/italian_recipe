@@ -1,3 +1,5 @@
 # flower-pics
-```npm install```
+
+```npm install``` 
+
 ```npm run dev```
