@@ -1,0 +1,12 @@
+#about{
+    display: none;
+}
+body{
+    text-align: center;
+}
+div{
+    flex-basis: 50%;
+}
+.right > *{
+    margin: 2vh auto;
+}

@@ -3,9 +3,15 @@ const app = express()
 const PORT = 8000
 const cors = require('cors')
 app.use(cors())
+app.use(express.static('public'));
+
+
+// set the view engine to ejs
+app.set('view engine', 'ejs');
 
 app.get('/', (request, response) => {
-    response.sendFile(__dirname + '/index.html')
+    const currentPath = request.path;
+    response.render('index.ejs', { currentPath: currentPath });
 })
 
 const flowers = {
