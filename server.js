@@ -83,6 +83,7 @@ app.get('/api/:flowerName', (request, response) => {
     }
     else {
         response.status(404).json({ error: "Please enter a valid flower." });
+        response.send("Oooops something went wrong - try entering a new flower");
     }
 
 });

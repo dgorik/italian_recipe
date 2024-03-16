@@ -12,7 +12,6 @@ async function apiRequest() {
         document.querySelector('#about').innerText = data.description
     } catch (error) {
         console.log(error)
-        message = "Oooops something went wrong - try entering again"
-        document.querySelector('#about').innerText = message
+        document.querySelector('#about').innerText = error.message
     }
 }
