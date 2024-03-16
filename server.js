@@ -76,9 +76,6 @@ const flowers = {
     }
 }
 
-
-
-
 app.get('/api/:flowerName', (request, response) => {
     const userInput = request.params.flowerName.toLowerCase()
     if (flowers.hasOwnProperty(userInput)) {
