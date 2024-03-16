@@ -20,3 +20,7 @@ ul {
     text-align: center;
     /* Center-align the text */
 }
+
+button {
+    color: aqua;
+}
