@@ -1,0 +1,6 @@
+ul {
+    list-style-position: inside;
+    /* Move bullet points inside the list item */
+    text-align: center;
+    /* Center-align the text */
+}
