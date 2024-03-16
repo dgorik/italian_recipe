@@ -2,7 +2,7 @@
 document.querySelector('button').addEventListener('click', apiRequest)
 
 async function apiRequest() {
-    const flower = document.querySelector('input').value
+    const flower = document.querySelector('input').value.toLowerCase()
     try {
         const response = await fetch(`https://flower-description-api.onrender.com/api/${flower}`)
         const data = await response.json()
