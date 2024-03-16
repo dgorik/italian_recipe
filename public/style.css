@@ -1,12 +1,22 @@
-#about{
+#about {
     display: none;
 }
-body{
+
+body {
     text-align: center;
 }
-div{
+
+div {
     flex-basis: 50%;
 }
-.right > *{
+
+.right>* {
     margin: 2vh auto;
+}
+
+ul {
+    list-style-position: inside;
+    /* Move bullet points inside the list item */
+    text-align: center;
+    /* Center-align the text */
 }
