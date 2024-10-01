@@ -8,7 +8,6 @@ async function apiRequest() {
     try {
         const response = await fetch(`/.netlify/functions/server/api/${menu_item}`)
         const data = await response.json()
-        console.log(data)``
         document.querySelector('#about').style.display = 'flex'
         document.querySelector('#item_description').style.display = 'flex'
         //document.querySelector('img').src = data.description
