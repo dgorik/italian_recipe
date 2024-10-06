@@ -1,21 +1,20 @@
 const express = require('express')
+const path = require('path');
 const serverless = require('serverless-http');
 const app = express()
 const cors = require('cors')
+
 app.use(cors())
-app.set('views', path.join(__dirname, 'views'))
-app.use(express.static('public'));
 
 const router = express.Router();
 
 // set the view engine to ejs
+app.set('views', path.join(__dirname, '..', 'views'));
+app.use(express.static(path.join(__dirname,'..','public')));
 app.set('view engine', 'ejs');
 
 router.get('/', (request, response) => {
-    response.render({ 
-        title: 'Welcome to Recipe App', 
-        message: 'Explore Delicious Recipes!' 
-    });
+    response.render('index.ejs')
 })
 
 const recipes = {
