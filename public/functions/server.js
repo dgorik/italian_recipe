@@ -12,7 +12,10 @@ const router = express.Router();
 app.set('view engine', 'ejs');
 
 router.get('/', (request, response) => {
-    response.render('index');
+    response.render({ 
+        title: 'Welcome to Recipe App', 
+        message: 'Explore Delicious Recipes!' 
+    });
 })
 
 const recipes = {
