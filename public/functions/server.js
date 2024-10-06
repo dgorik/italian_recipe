@@ -12,7 +12,7 @@ const router = express.Router();
 app.set('view engine', 'ejs');
 
 router.get('/', (request, response) => {
-    response.render('index.ejs');
+    response.render('index');
 })
 
 const recipes = {
