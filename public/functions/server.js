@@ -3,6 +3,7 @@ const serverless = require('serverless-http');
 const app = express()
 const cors = require('cors')
 app.use(cors())
+app.set('views', path.join(__dirname, 'views'))
 app.use(express.static('public'));
 
 const router = express.Router();
