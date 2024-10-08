@@ -1,2 +1,3 @@
 [build]
   functions = "public/functions"
+  included_files = ["views/*.ejs"]
