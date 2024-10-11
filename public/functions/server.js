@@ -10,7 +10,7 @@ const router = express.Router();
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
-app.get('/', (request, response) => {
+router.get('/', (request, response) => {
     response.render('index.ejs');
 })
 
@@ -77,7 +77,7 @@ const recipes = {
     }
 }
 
-app.get('/api/:menu_item', (request, response) => {
+router.get('/api/:menu_item', (request, response) => {
 
     const menu_item = request.params.menu_item
 
