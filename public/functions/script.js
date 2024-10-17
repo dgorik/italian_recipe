@@ -6,7 +6,7 @@ async function apiRequest() {
     const menu_item = document.querySelector('input').value.toLowerCase()
 
     try {
-        const response = await fetch(`/api/${menu_item}`)
+        const response = await fetch(`/.netlify/functions/server/${menu_item}`)
         const data = await response.json()
         console.log(data)
         document.querySelector('#about').style.display = 'flex'
