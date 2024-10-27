@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express()
-const PORT = process.env.PORT || 8000;
 const cors = require('cors')
 app.use(cors())
 app.use(express.static('public'));
 
+const router = express.Router();
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -90,7 +90,7 @@ app.get('/api/:menu_item', (request, response) => {
 
 });
 
-app.use('/.netlify/functions/script', router)
+app.use('/.netlify/functions/server', router)
 
 module.exports = app;
 
