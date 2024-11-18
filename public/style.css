@@ -1,24 +1,28 @@
 #about {
     display: none;
+    text-align: center;
+}
+
+#item_description {
+    display: none;
+    text-align: center;
+}
+
+input { 
+    text-align: center; 
 }
 
 body {
     text-align: center;
 }
 
-div {
-    flex-basis: 50%;
-}
-
 .right>* {
     margin: 2vh auto;
 }
 
-ul {
-    list-style-position: inside;
-    /* Move bullet points inside the list item */
+ul li {
+    list-style: none;
     text-align: center;
-    /* Center-align the text */
 }
 
 button {

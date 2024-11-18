@@ -13,77 +13,79 @@ app.get('/', (request, response) => {
     response.render('index.ejs');
 })
 
-const flowers = {
-    "roses": {
-        "description": "Roses typically grow in gardens and should be watered every 2-3 days.",
-        "location": "Gardens",
-        "care": "Regular pruning, fertilizing, and pest control",
-        "picture": "https://images.pexels.com/photos/53141/rose-red-blossom-bloom-53141.jpeg?auto=compress&cs=tinysrgb&w=600"
+const recipes = {
+    "spaghetti_bolognese": {
+        "description": "A classic Italian pasta dish made with a rich, savory meat sauce.",
+        "ingredients": ["spaghetti", "ground beef", "onions", "garlic", "tomato paste", "olive oil", "red wine", "bay leaves", "salt", "pepper"],
+        "method": "Cook the pasta. In a separate pan, cook beef with onions, garlic, tomato paste, and wine. Simmer and combine with pasta.",
+        "picture": "https://images.pexels.com/photos/1343088/pexels-photo-1343088.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "sunflowers": {
-        "description": "Sunflowers thrive in open fields and require watering every day.",
-        "location": "Open fields",
-        "care": "Full sun and well-drained soil",
-        "picture": "https://images.pexels.com/photos/1366630/pexels-photo-1366630.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "margherita_pizza": {
+        "description": "A simple pizza topped with tomato, fresh mozzarella, and basil leaves.",
+        "ingredients": ["pizza dough", "tomato sauce", "mozzarella", "basil", "olive oil", "salt"],
+        "method": "Spread tomato sauce on the dough, add mozzarella, and bake. Top with fresh basil and olive oil.",
+        "picture": "https://images.pexels.com/photos/984380/pexels-photo-984380.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "orchids": {
-        "description": "Orchids are often found in greenhouses and need watering every 5-7 days.",
-        "location": "Greenhouses",
-        "care": "High humidity and indirect light",
-        "picture": "https://images.pexels.com/photos/87016/orchid-flower-blossom-bloom-87016.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "lasagna": {
+        "description": "A layered pasta dish with meat, cheese, and tomato sauce.",
+        "ingredients": ["lasagna noodles", "ground beef", "tomato sauce", "ricotta", "mozzarella", "parmesan", "garlic", "onions"],
+        "method": "Layer cooked noodles with meat sauce and cheeses. Bake until bubbly.",
+        "picture": "https://images.pexels.com/photos/2681711/pexels-photo-2681711.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "lilys": {
-        "description": "Lilies grow near pond edges and should be watered twice a week.",
-        "location": "Pond edges",
-        "care": "Moderate sunlight and moist soil",
-        "picture": "https://images.pexels.com/photos/424134/pexels-photo-424134.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "risotto": {
+        "description": "A creamy rice dish often made with vegetables, seafood, or meat.",
+        "ingredients": ["arborio rice", "chicken stock", "parmesan", "butter", "onion", "white wine", "salt", "pepper"],
+        "method": "Sauté onions, add rice and white wine. Gradually add stock while stirring, and finish with butter and parmesan.",
+        "picture": "https://images.pexels.com/photos/4622875/pexels-photo-4622875.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "tulips": {
-        "description": "Tulips are commonly found in flower beds and require watering every 3-4 days.",
-        "location": "Flower beds",
-        "care": "Well-drained soil and full sun to partial shade",
-        "picture": "https://images.pexels.com/photos/53978/tulipa-tulip-flowers-spring-53978.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "frittata": {
+        "description": "An Italian-style omelette with vegetables, cheese, and meats.",
+        "ingredients": ["eggs", "potatoes", "onion", "cheese", "olive oil", "salt", "pepper"],
+        "method": "Sauté potatoes and onions, whisk eggs, then cook in a skillet until set. Add cheese and finish under the broiler.",
+        "picture": "https://images.pexels.com/photos/2643792/pexels-photo-2643792.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "daisys": {
-        "description": "Daisies are hardy and grow in a variety of environments, from fields to gardens.",
-        "location": "Fields or gardens",
-        "care": "Regular deadheading to promote blooming",
-        "picture": "https://images.pexels.com/photos/67857/daisy-flower-spring-marguerite-67857.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "gnocchi": {
+        "description": "Soft potato dumplings served with various sauces.",
+        "ingredients": ["potatoes", "flour", "egg", "salt", "butter", "parmesan"],
+        "method": "Boil potatoes, mash, mix with flour and egg to form dough, shape into dumplings, and boil. Serve with butter and parmesan.",
+        "picture": "https://images.pexels.com/photos/1329565/pexels-photo-1329565.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "carnations": {
-        "description": "Carnations are popular in bouquets and thrive in well-drained soil.",
-        "location": "Gardens or pots",
-        "care": "Regular pruning and deadheading",
-        "picture": "https://images.pexels.com/photos/2379271/pexels-photo-2379271.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "carbonara": {
+        "description": "Pasta served with a creamy egg-based sauce, pancetta, and parmesan.",
+        "ingredients": ["spaghetti", "pancetta", "eggs", "parmesan", "pecorino", "black pepper"],
+        "method": "Cook pasta and pancetta. Mix eggs and cheese, then toss with pasta and pancetta off the heat to make the sauce.",
+        "picture": "https://images.pexels.com/photos/2999091/pexels-photo-2999091.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "daffodils": {
-        "description": "Daffodils are early spring bloomers and require well-drained soil and partial shade.",
-        "location": "Gardens or flower beds",
-        "care": "Plant bulbs in the fall for spring blooms",
-        "picture": "https://images.pexels.com/photos/3834461/pexels-photo-3834461.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "minestrone_soup": {
+        "description": "A hearty vegetable soup made with beans, pasta, and broth.",
+        "ingredients": ["vegetable broth", "carrots", "onion", "zucchini", "tomatoes", "beans", "pasta", "garlic", "spinach"],
+        "method": "Sauté vegetables, add broth and beans, and simmer. Add pasta and spinach before serving.",
+        "picture": "https://images.pexels.com/photos/3770568/pexels-photo-3770568.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "hyacinths": {
-        "description": "Hyacinths are known for their fragrant blooms and prefer full sun to partial shade.",
-        "location": "Gardens or pots",
-        "care": "Plant bulbs in the fall and provide adequate moisture",
-        "picture": "https://images.pexels.com/photos/1018142/pexels-photo-1018142.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "panzanella": {
+        "description": "A bread salad made with tomatoes, cucumbers, onions, and basil.",
+        "ingredients": ["stale bread", "tomatoes", "cucumbers", "onions", "basil", "olive oil", "vinegar"],
+        "method": "Tear bread into pieces, mix with vegetables, add olive oil and vinegar, and toss.",
+        "picture": "https://images.pexels.com/photos/2203833/pexels-photo-2203833.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
-    "peonys": {
-        "description": "Peonies are perennial favorites with large, showy blooms and thrive in full sun.",
-        "location": "Gardens",
-        "care": "Provide support for tall varieties and deadhead spent blooms",
-        "picture": "https://images.pexels.com/photos/617967/pexels-photo-617967.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "tiramisu": {
+        "description": "A classic Italian dessert made with coffee-soaked ladyfingers, mascarpone, and cocoa.",
+        "ingredients": ["ladyfingers", "mascarpone", "coffee", "cocoa powder", "eggs", "sugar", "rum"],
+        "method": "Soak ladyfingers in coffee, layer with mascarpone mixture, and refrigerate. Dust with cocoa powder before serving.",
+        "picture": "https://images.pexels.com/photos/1966479/pexels-photo-1966479.jpeg?auto=compress&cs=tinysrgb&w=600"
     }
 }
 
-app.get('/api/:flowerName', (request, response) => {
-    const userInput = request.params.flowerName.toLowerCase()
-    if (flowers.hasOwnProperty(userInput)) {
-        response.json(flowers[userInput])
+app.get('/api/:menu_item', (request, response) => {
+
+    const menu_item = request.params.menu_item
+
+    if (recipes[menu_item]) {
+        response.json(recipes[menu_item])
     }
     else {
         response.status(404).json({ error: "Please enter a valid flower." });
-        response.send("Oooops something went wrong - try entering a new flower");
+        //response.send("Oooops something went wrong - try entering a new flower");
     }
 
 });

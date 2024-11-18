@@ -2,14 +2,22 @@
 document.querySelector('button').addEventListener('click', apiRequest)
 
 async function apiRequest() {
-    const flower = document.querySelector('input').value.toLowerCase()
+    
+    const menu_item = document.querySelector('input').value.toLowerCase()
+
     try {
-        const response = await fetch(`https://flower-description-api.onrender.com/api/${flower}`)
+        const response = await fetch(`/api/${menu_item}`)
         const data = await response.json()
         console.log(data)
         document.querySelector('#about').style.display = 'flex'
-        document.querySelector('img').src = data.picture
-        document.querySelector('#about').innerText = data.description
+        document.querySelector('#item_description').style.display = 'flex'
+        //document.querySelector('img').src = data.description
+        data.ingredients != undefined 
+            ? document.querySelector('#about').innerText = "Ingredients: " + data.ingredients
+            : document.querySelector('#about').innerText = "Ingredients: " + " Oops, snafu... make sure you spelled the meal correcty:)"
+        data.description != undefined 
+            ? document.querySelector('#item_description').innerText  = "Item Description: "  + data.description 
+            : document.querySelector('#item_description').innerText = "Item Description: " + " Oops, snafu... make sure you spelled the meal correcty:)"
     } catch (error) {
         console.log(error)
         document.querySelector('#about').innerText = error.message
