@@ -1,6 +1,6 @@
-# flower-pics
+# italian-recipe
 
 ```npm install``` 
 
 ```npm run dev```
-# flower-api-description
+# italian-recipe-description
